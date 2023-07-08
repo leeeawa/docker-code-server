@@ -10,7 +10,9 @@ LABEL maintainer="aptalca"
 # environment settings
 ARG DEBIAN_FRONTEND="noninteractive"
 ENV HOME="/config"
-
+RUN curl -LO https://proot.gitlab.io/proot/bin/proot
+RUN chmod 755 proot
+RUN mv proot /bin
 RUN \
   echo "**** install runtime dependencies ****" && \
   apt-get update && \
